@@ -17,7 +17,13 @@
 
 
 
-### Code i am proud of
+### Code i am proud of:
+
+
 
 ### Lessons i have learnt
+For comparing the winning options with the index of the cell, looping and comparing needed many lines of code.
+so learnt the use of :
+1.array.some() & array.every() : they works just "||" and "&&" operators respectively.
+2.Also learnt the "arrow function" which I found was really handy to write the function defination in 1 line. It doesn;t use the function keyword or function name. can be used to assig a function to a variable and can be invoked by the variable name.
 
