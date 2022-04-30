@@ -1,0 +1,91 @@
+var winningOptions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+
+// var currentPlayer = document.querySelector('#current-player');  s
+// const player1Value = 'X';
+// const player2Value = 'O';
+// var isPlayer2turn = false;
+var playBoard = document.querySelectorAll('.cell');
+var resetBtn = document.querySelector('#reset-button');
+var startBtn = document.querySelector('#start-button');
+
+
+resetBtn.addEventListener('click', clearBoard);
+startBtn.addEventListener('click', startGame);
+
+function startGame() {
+    document.querySelector('.mainBoard').style.backgroundColor = 'rgb(153, 134, 134)';
+    var firstPlayer = document.querySelector('#player1').value;
+    var secondPlayer = document.querySelector('#player2').value;
+
+    displayPlayerName(firstPlayer);
+
+    const player1Value = 'X';
+    const player2Value = 'O';
+    var isPlayer2Playing = false;
+
+    for (let i = 0; i < playBoard.length; i++) {
+        playBoard[i].addEventListener('click', function(event) {
+            if (event.target.textContent === "") {
+                var currentPlayer = isPlayer2Playing ? player2Value : player1Value;
+                event.target.textContent = currentPlayer;
+                
+                event.target.setAttribute('data-cell-index', currentPlayer);
+                isPlayer2Playing = !isPlayer2Playing;
+
+                displayPlayerName(isPlayer2Playing ? secondPlayer : firstPlayer);
+
+                setTimeout(() => {
+                    if (checkWin(currentPlayer)) {
+                        alert(currentPlayer + " wins");
+                        clearBoard();
+                    } else {
+                        if (checkDraw()){
+                            alert('Draw!');
+                            clearBoard();
+                        }
+                    }
+                }, 300);
+            }
+         })
+    }
+}
+
+function displayPlayerName(playerName) {
+    var currentPlayerName = document.querySelector('#current-player-name');
+    currentPlayerName.textContent = playerName + "'s turn";
+}
+
+function checkWin(currentPlayerValue) {
+	return winningOptions.some(combination => {
+		return combination.every(index => {
+            return playBoard[index].getAttribute('data-cell-index') == currentPlayerValue;
+		})
+	})
+}
+
+function checkDraw() {
+    return (Array.from(playBoard).every(cell => cell.getAttribute('data-cell-index') != ""));
+}
+
+function clearBoard() {
+    for (var eachCell of playBoard) {
+        eachCell.textContent = "";
+        eachCell.setAttribute('data-cell-index', "");
+
+    }
+}
+
+// function checkDraw() {
+//     for(var i = 0; i < playBoard.length; i++) {
+//     (playBoard[i].getAttribute('data-cell-index') != "");
+//     }
+// }
+
+
+
+
+
+
+
+
+
