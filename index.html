@@ -10,37 +10,48 @@
 </head>
 
 <body>
-    <header>
-    <h1>Tic-Tac-Toe game</h1>
-    <h2>A game that never gets old!<h2>
+    <header class="page-header">
+        <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZunQ-UHsNAxI3i7HHwkOdoy6tZzF2aQK05hq0KKsaDyWxu-K1GxpONKQobvI9e0b6XWw&usqp=CAU" alt="" width="400px">
+        <h1 class="main-header-title"> Team Batman vs Team superman<h1>
+        <img class="hero-image" src="https://www.lego.com/cdn/cs/set/assets/blt0bf03ae97678db52/Batman2_App_Sidekick-Tall1.jpg?fit=crop&format=jpg&quality=80&width=800&height=600&dpr=1" alt="" width="300px">
     </header>
-    <h3>Let the match begin</h3>
-   
-    <form>
-        <div class="firstPlayerInput">
-            <lable>First player
-                <input id="player1" type="text" class="player1">
-            </lable>
-        </div>
-        <div class="secondPlayerInput">
-            <div class="">
-            <label>Second player
-                <input id="player2" type="text" class="player2">
-            </label>
-        </div>
+    <h1 class="game-title">Dawn Of Justice</h1>
+    <div class="hero-image container"></div>
+    <h2 class="game-rule"> To be a part of the battle you must select a superhero's  team and click on the "START" or alas! you miss the fun</h2>
+    <section class="player-info">
+        <!-- <form> -->
+            <div class="firstPlayerInput">
+                <lable>Team BATMAN
+                    <input id="player1" type="text" class="player1">
+                </lable>
+            </div>
+            <div class="secondPlayerInput">
+                <div class="">
+                <label>Team SUPERMAN
+                    <input id="player2" type="text" class="player2">
+                </label>
+            </div>   
+        <!-- </form> -->
+</section>
+
+    <section class="game-info">
+        <h3 class="quote">"It's not who I am underneath, but what I do that defines me."</h3>
         <button type="button" id="start-button">Start</button> 
-    </form>
+        <h2 id="current-player-name">Get,Set & Gooo!!</h2>
 
-    <h2><span id="current-player-name"></span></h2>
+        <h3 class="winner-name">Let the game choose the Real Superhero</h3>
+    </section>
 
-    <h3 class="winner-name">Let the game choose the Real Superhero</h3>
+    <div id="winning-image"></div>
 
     <main> 
-       <div class="batman"> 
-           <img src="https://media4.giphy.com/media/26DOGjct4hWpFnnsA/giphy.gif" alt="" width="200px">
+       <div class="batman-gif"> 
+           <img src="https://media4.giphy.com/media/26DOGjct4hWpFnnsA/giphy.gif" alt="" width="300px">
+           <h4 id="first-player-name">Dark Knight</h4>
+           <!-- <h4 class="score-counter">score</h4> -->
        </div>
+  
         <div class="mainBoard">
-        
             <div class="cell" data-cell-index></div>
             <div class="cell" data-cell-index></div>
             <div class="cell" data-cell-index></div>
@@ -49,11 +60,13 @@
             <div class="cell" data-cell-index></div>
             <div class="cell" data-cell-index></div>
             <div class="cell" data-cell-index></div>
-            <div class="cell" data-cell-index></div>
-            
+            <div class="cell" data-cell-index></div>         
         </div>
-        <div class="superman">
-            <img src="https://c.tenor.com/IvTDG8UY2CgAAAAC/superman-lego.gif" alt="" width="200px">
+    
+        <div class="superman-gif">
+            <img src="https://c.tenor.com/IvTDG8UY2CgAAAAC/superman-lego.gif" alt="" width="300px">
+            <h4 id="second-player-name">Super-Man</h4>
+            <!-- <h4 class="score-counter">score</h4> -->
         </div>
     </main>
     

@@ -1,56 +1,56 @@
 var winningOptions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 
-// var currentPlayerValue = document.querySelector('#current-player');  s
-// const player1Value = 'X';
-// const player2Value = 'O';
-// var isPlayer2turn = false;
 var playBoard = document.querySelectorAll('.cell');
 var resetBtn = document.querySelector('#reset-button');
 var startBtn = document.querySelector('#start-button');
-
 
 resetBtn.addEventListener('click', clearBoard);
 startBtn.addEventListener('click', startGame);
 
 function startGame() {
-    document.querySelector('.mainBoard').style.backgroundColor = 'rgb(153, 134, 134)';
+
+    document.querySelector('.mainBoard').style.backgroundImage = 'linear-gradient(62deg, #23211f 0%, #ea0909 100%)';
     var firstPlayer = document.querySelector('#player1').value;
     var secondPlayer = document.querySelector('#player2').value;
+    if (firstPlayer && secondPlayer !== "") {
+        document.querySelector('#first-player-name').textContent = firstPlayer;
+        document.querySelector('#second-player-name').textContent = secondPlayer;
 
-    displayPlayerName(firstPlayer);
+        displayPlayerName(firstPlayer);
 
-    const player1Value = 'X';
-    const player2Value = 'O';
-    var isPlayer2Playing = false;
+        const player1Value = 'X';
+        const player2Value = 'O';
+        var isPlayer2Playing = false;
 
-    for (let i = 0; i < playBoard.length; i++) {
-        playBoard[i].addEventListener('click', function(event) {
-            if (event.target.textContent === "") {
-                var currentPlayerValue = isPlayer2Playing ? player2Value : player1Value;
-                var currentPlayerLogo = (currentPlayerValue === player1Value ?  'B' : 'S' )
-                // event.target.textContent = currentPlayerValue;
-                event.target.textContent = currentPlayerLogo;
+        for (let i = 0; i < playBoard.length; i++) {
+            playBoard[i].addEventListener('click', function(event) {
+                if (event.target.textContent === "") {
+                    var currentPlayerValue = isPlayer2Playing ? player2Value : player1Value;
+                    var currentPlayerLogo = (currentPlayerValue === player1Value ?  'B' : 'S' )
+                
+                    event.target.textContent = currentPlayerLogo;
 
-                event.target.setAttribute('data-cell-index', currentPlayerValue);
-                isPlayer2Playing = !isPlayer2Playing;
+                    event.target.setAttribute('data-cell-index', currentPlayerValue);
+                    isPlayer2Playing = !isPlayer2Playing;
 
-                displayPlayerName(isPlayer2Playing ? secondPlayer : firstPlayer);
+                    displayPlayerName(isPlayer2Playing ? secondPlayer : firstPlayer);
 
-                setTimeout(() => {
-                    if (checkWin(currentPlayerValue)) {
-                        // alert(currentPlayerValue + " wins");
-                        // document.querySelector('.winner-name').textContent = currentPlayerValue;
-                        document.querySelector('.winner-name').textContent =(isPlayer2Playing ? secondPlayer :firstPlayer);
-                        clearBoard();
-                    } else {
-                        if (checkDraw()){
-                            alert('Draw!');
+                    setTimeout(() => {
+                        if (checkWin(currentPlayerValue)) {
+                            // alert(currentPlayerValue + " wins");
+                            // document.querySelector('.winner-name').textContent = currentPlayerValue;
+                            document.querySelector('.winner-name').textContent =(isPlayer2Playing ? (secondPlayer + ": Team SuperMan Win's") :(firstPlayer + ": Team Batman Win's"));
                             clearBoard();
+                        } else {
+                            if (checkDraw()){
+                                alert('Draw!');
+                                clearBoard();
+                            }
                         }
-                    }
-                }, 300);
-            }
-         })
+                    }, 500);
+                }
+            })
+        }
     }
 }
 
@@ -76,9 +76,9 @@ function clearBoard() {
         eachCell.textContent = "";
         eachCell.setAttribute('data-cell-index', "");
     }
-
     document.querySelector('#current-player-name').textContent = "";
-
+    document.querySelector('.winner-name').textContent = "Let the game choose the Real Superhero";
+    document.querySelector('#current-player-name').textContent = "Get,Set & Gooo!!";
 }
 
 // function checkDraw() {
