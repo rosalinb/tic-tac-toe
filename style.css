@@ -1,13 +1,18 @@
 body{
     background-color: beige;
+    background-image: url("https://i.pinimg.com/originals/fc/4e/ba/fc4eba2c66777a5d6a11a817b52aa6a3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     }
 header, h3{
     text-align: center;
+    color: white;
 }
 
 .firstPlayerInput, .secondPlayerInput {
     margin: 30px;
     text-align: center;
+    color: white;
 }
 
 .mainBoard {
@@ -18,17 +23,28 @@ header, h3{
     background-color: grey;
     grid-auto-rows: minmax(100px, 1fr);
     padding: 10px; 
-    max-width: 500px;
-    margin: auto;
+    max-width: 800px;
+    /* margin: auto; */
 }
 
 .cell {
     background-color: rgba(255, 255, 255, 0.8);
+    color: black;
     text-align: center;
     padding: 50px 0;
     font-size: 30px; 
     min-width: 100px;
     justify-content: center;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px;
+}
+.batman {
+    width : 10px;
 }
 
 #start-button, #reset-button {

@@ -1,6 +1,6 @@
 var winningOptions = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 
-// var currentPlayer = document.querySelector('#current-player');  s
+// var currentPlayerValue = document.querySelector('#current-player');  s
 // const player1Value = 'X';
 // const player2Value = 'O';
 // var isPlayer2turn = false;
@@ -26,17 +26,21 @@ function startGame() {
     for (let i = 0; i < playBoard.length; i++) {
         playBoard[i].addEventListener('click', function(event) {
             if (event.target.textContent === "") {
-                var currentPlayer = isPlayer2Playing ? player2Value : player1Value;
-                event.target.textContent = currentPlayer;
-                
-                event.target.setAttribute('data-cell-index', currentPlayer);
+                var currentPlayerValue = isPlayer2Playing ? player2Value : player1Value;
+                var currentPlayerLogo = (currentPlayerValue === player1Value ?  'B' : 'S' )
+                // event.target.textContent = currentPlayerValue;
+                event.target.textContent = currentPlayerLogo;
+
+                event.target.setAttribute('data-cell-index', currentPlayerValue);
                 isPlayer2Playing = !isPlayer2Playing;
 
                 displayPlayerName(isPlayer2Playing ? secondPlayer : firstPlayer);
 
                 setTimeout(() => {
-                    if (checkWin(currentPlayer)) {
-                        alert(currentPlayer + " wins");
+                    if (checkWin(currentPlayerValue)) {
+                        // alert(currentPlayerValue + " wins");
+                        // document.querySelector('.winner-name').textContent = currentPlayerValue;
+                        document.querySelector('.winner-name').textContent =(isPlayer2Playing ? secondPlayer :firstPlayer);
                         clearBoard();
                     } else {
                         if (checkDraw()){
@@ -71,8 +75,10 @@ function clearBoard() {
     for (var eachCell of playBoard) {
         eachCell.textContent = "";
         eachCell.setAttribute('data-cell-index', "");
-
     }
+
+    document.querySelector('#current-player-name').textContent = "";
+
 }
 
 // function checkDraw() {
