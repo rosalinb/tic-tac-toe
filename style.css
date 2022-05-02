@@ -1,13 +1,12 @@
-body{
+body {
     background-color: beige;
-    /* background-image: url("https://i.pinimg.com/originals/fc/4e/ba/fc4eba2c66777a5d6a11a817b52aa6a3.jpg"); */
     background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%);
-  
     background-repeat: no-repeat;
     background-size: cover;
     text-align: center;
-    }
-.page-header{
+}
+
+.page-header {
     display: flex;
     color: white;
     justify-content: center;
@@ -45,48 +44,52 @@ body{
     text-align: center;
 }
 
+.winner-name {
+    color : black;
+    font-size: 30px;
+}
+
 main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 100px; 
+    margin: 30px; 
     gap: 30px;
 }
 
 .mainBoard {
     display: grid;
-    /* grid-template-columns: repeat(3,auto); */
     grid-template-columns: 150px 150px 150px;
-
-    gap: 5px;
-    /* background-image: url("https://images.unsplash.com/photo-1596865249308-2472dc5807d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1206&q=80"); */
-    /* background-color: rgb(153, 134, 134); */
-    /* background-color: grey; */
+    gap: 5px;  
     padding: 10px; 
     max-width: 1000px;
-    /* margin: auto; */
 }
 
 .cell {
-    /* background-image: url("https://wallpaperaccess.com/full/2998302.jpg"); */
     background-color: rgba(255, 255, 255, 0.8);
     color: rgb(32, 32, 60);
     text-align: center;
     padding: 50px 0;
     font-size: 30px; 
     justify-content: center;
+
 }
 
+.winner-name {
+    margin: 10px;
+}
 
 .batman-gif, .superman-gif {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-#first-player-name, .score-counter {
+#first-player-name, #second-player-name, .superman-score, .bat-man-score {
     margin: 10px;
+    font-size: 30px;
+    color :#b7b5cec6;
 }
 
 #start-button, #reset-button {
@@ -100,12 +103,9 @@ main {
     outline: none;
     border: none;
     transition: 200ms;
-    margin: 50px;
+    margin: 20px;
     
 }
 
 
 
-.score-board {
-    
-}
